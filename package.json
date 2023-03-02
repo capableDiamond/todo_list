@@ -1,0 +1,24 @@
+{
+  "name": "todo_list",
+  "version": "1.0.0",
+  "description": "A To-Do list which will act as a reminder of tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capableDiamond/todo_list.git"
+  },
+  "author": "Shivam Aggarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capableDiamond/todo_list/issues"
+  },
+  "homepage": "https://github.com/capableDiamond/todo_list#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.10.0"
+  }
+}

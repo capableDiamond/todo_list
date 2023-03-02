@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome CDN  -->
+    <script src="https://kit.fontawesome.com/5a066c21bb.js" crossorigin="anonymous"></script>
+
+    <!-- Link to CSS File  -->
+    <link rel="stylesheet" href="./css/home.css">
+
+    <title><%= title %></title>
+</head>
+<body>
+    <div id="container">
+        <div id="user-input-section"> <!--Has absolute height-->
+            <div id="title-container">   
+                <h2 id="app-title">TODO App</h2>
+            </div>
+            <form action="/create-task" method="post" id="user-input-form">
+                <div id="task-description-container" class="border user-input-section-child">
+                    <label for="task" id="task-label">DESCRIPTION</label>
+                    <input type="text" id="task" name="task" required placeholder="What do you need to do?" autocomplete="off">
+                </div>
+                <div id="category-date-container" class="border user-input-section-child">
+                    <div id="category-container">
+                        <select name="category" id="category">
+                            <!-- //later to be replaced by loading from server side -->
+                            <!-- an option for edit categories can be created on the backend -->
+                            <option value="none" selected disabled hidden>Choose a category</option>
+                            <option value="school">School</option>
+                            <option value="personal">Personal</option>
+                            <option value="Home">Home</option>
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+                    <div id="date-container">
+                        <label for="date">Due Date</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                </div>
+                <div id="buttons-container" class="border user-input-section-child">
+                    <button type="submit" id="add-task-button">
+                        <i class="fa-solid fa-plus"></i>
+                        <p>Add Task</p>
+                    </button>
+                    <!-- to be styled as a button  -->
+                    <div id="delete-task-button-container">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <a href="" id="delete-task-button">Delete Task </a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <div id="task-list-section">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/home.js"></script>
+</body>
+</html>
