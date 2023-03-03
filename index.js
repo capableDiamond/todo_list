@@ -29,10 +29,21 @@ app.use(express.static('assets'));
 
 //Routes
 app.get('/',function(req,res){
-    // res.send('<h1>Cool, it is running or is it??</h1>');
-    return res.render('home',{
-        title:'To-Do App'
+    
+    Tasks.find({},function(err,tasks){
+        //task in the callback function reffer to all the search results from the db
+        if(err){
+            console.log('Error in fetching contacts from DB');
+            return;
+        }
+
+        return res.render('home',{
+            title:'To-Do App',
+            task_list:tasks
+        });
     });
+
+
 });
 
 app.post('/create-task',function(req,res){
@@ -44,6 +55,8 @@ app.post('/create-task',function(req,res){
     
     return res.redirect('back');
 });
+
+app.get('/delete-task',(req,res) => res.redirect('back'));
 
 //handler function when the server starts listening to the port
 app.listen(port,function(err){

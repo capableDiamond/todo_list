@@ -16,7 +16,7 @@ body{
 #container{
     border: 1px solid black;
     width: 40rem;
-    height: 40rem;
+    /* height: 40rem; */
     max-height: 100vh;
     min-height: 700px;
 }
@@ -111,23 +111,29 @@ input[type="date"],select{
 
 #buttons-container{
     height: 34%;
+    /* width: 50%; */
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    /* border: 1px solid black; */
 }
 
-#add-task-button{
+/* Common code for buttons  */
+.button{
     height: 3rem;
     width: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.757);
     color:var(--white) ;
     border: none;
+}
+
+#add-task-button{
+    background-color: rgba(0, 0, 0, 0.757);
 }
 
 #add-task-button:hover{
@@ -135,32 +141,21 @@ input[type="date"],select{
     background-color: rgba(0, 0, 0, 0.566);
 }
 
-#delete-task-button-container{
-    height: 3rem;
-    width: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#delete-task-button{
     background-color: rgb(184, 0, 0);
 }
 
-#delete-task-button-container:hover{
+#delete-task-button:hover{
     cursor: pointer;
     background-color: rgba(184, 0, 0, 0.738);
 }
-
 
 #delete-task-button-container i,#add-task-button i{
     margin-right: 8px;
     color: var(--white);
 }
 
-/* a tag  */
-#delete-task-button{
-    text-decoration: none;
-    font-size: 16px;
-    color: var(--white);
-}
+
 
 /* common classes */
 .border{
