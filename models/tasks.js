@@ -6,8 +6,7 @@ const taskSchema = mongoose.Schema({
         required:true
     },
     date:{
-        type:Date,
-        required:true
+        type:String,
     },
     category:{
         type:String,

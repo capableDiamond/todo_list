@@ -56,7 +56,51 @@ app.post('/create-task',function(req,res){
     return res.redirect('back');
 });
 
-app.get('/delete-task',(req,res) => res.redirect('back'));
+let a = 1;
+
+app.post('/delete-task',function(req,res){
+    //if delete button is pressed without selecting a task
+    let tasksToDelete = req.body._task;
+    if(typeof(tasksToDelete) === 'undefined'){
+        return res.redirect('back');
+    }//implies a single task to delete
+    else if(typeof(tasksToDelete) === 'string'){
+        Tasks.findByIdAndDelete(tasksToDelete,function(err){
+            if(err){
+                console.log('Error in deleting Single task');
+                return;
+            }
+            return res.redirect('back');
+        });
+        
+    }
+    else if(typeof(tasksToDelete) === 'object'){
+        for(let i of tasksToDelete){
+            Tasks.findByIdAndDelete(i,function(err,deletedTask){
+                if(err){
+                    console.log(err);
+                    return;
+                }else{
+                    console.log('deleted task ');
+                }
+                
+            });
+        }
+        return res.redirect('back');
+    }
+    
+    // console.log(tasksToDelete.length());
+    // for(let i of tasksToDelete){
+    //     Tasks.findByIdAndDelete(i,function(err){
+    //         console.log(i);
+    //         if(err){
+    //             console.log('Error in deleting the task');
+    //             return;
+    //         }
+    //         return res.redirect('back');
+    //     });
+    // }
+});
 
 //handler function when the server starts listening to the port
 app.listen(port,function(err){

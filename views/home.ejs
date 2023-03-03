@@ -60,7 +60,7 @@
             </form>
         </div>
         <div id="task-list-section">
-            <form action="/delete-task" id="task-display-form" method="get">
+            <form action="/delete-task" id="task-display-form" method="post">
                 <% for(let i of task_list){ %>
                 <div class="task">
                     <input type="checkbox" name="_task" id="" value="<%= i._id %>">
@@ -69,9 +69,7 @@
                             <label for="<%= i._id %>"> <%= i.task %></label>
                             <span>
                                 <i class="fa-regular fa-calendar-days"></i>
-                                <p>
-                                    <%= i.date %>
-                                </p>
+                                <%= i.date %>
                             </span>
                         </div>
                         <div class="task-category-label">

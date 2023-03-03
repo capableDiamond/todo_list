@@ -1,0 +1,2 @@
+add delete feature
+add strikethrough when a task is checked
